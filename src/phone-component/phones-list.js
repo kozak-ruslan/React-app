@@ -75,11 +75,10 @@ function PhoneList(props) {
         {
           phonesList.map(value => {
             return (
-              
               <ListItem key={value} role={undefined} dense button>
                 <ListItemText id={value} primary={`Phone name ${value}`} />
                 <ListItemSecondaryAction>
-                  <IconButton 
+                  <IconButton
                     size="small"
                     edge="end"
                     aria-label="comments"
@@ -98,7 +97,6 @@ function PhoneList(props) {
 
 
 class Phones extends Component {
- 
   state = {phoneName:'', phonesList:[]};
   handleChange = (event) => {
     console.log(event)
@@ -143,7 +141,7 @@ class Phones extends Component {
             label="Phone name"
             value={phoneName}
             onChange={(event) => this.handleChange(event.target.value)}/>
-            <BtnApply 
+            <BtnApply
               onClick={this.handleClickApply}
               nameBtn='Apply'>
           </BtnApply>

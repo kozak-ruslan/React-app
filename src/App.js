@@ -5,7 +5,6 @@ import {
   Switch,
 } from 'react-router-dom';
 
-
 import logo from './logo.svg';
 
 import './App.css';
@@ -17,15 +16,16 @@ import DemandSupply from './demand-supply/demand-supply';
 import Nav from './nav/nav';
 import reducer from "./reducer";
 import { createStore } from 'redux'
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import InputPhone from "./phone-component/phones-list"
+import { TodoComponent } from './todo-list/todi-component';
 
 var store = createStore(reducer);
- 
+
 store.dispatch({
   type: "SET_STATE",
   state: {
-    phones: [ "iPhone 7 Plus", "Samsung Galaxy A5" ]
+    phones: ["iPhone 7 Plus", "Samsung Galaxy A5"]
   }
 });
 
@@ -38,7 +38,7 @@ function App() {
           <div id='root-home'></div>
         </header>
         <Router>
-          <Nav/>
+          <Nav />
           <main>
             <Switch>
               <Route exact path='/' >
@@ -50,28 +50,31 @@ function App() {
                 <h1>
                   Page Game
                 </h1>
-                <Games/>
+                <Games />
               </Route>
               <Route path='/hooks-user-list'>
                 <h1>
                   Hooks
                 </h1>
-                <UsersListHooks/>
+                <UsersListHooks />
               </Route>
               <Route path='/class-user-list'>
                 <h1>
                   Class User List
                 </h1>
-                <UsersList/>
+                <UsersList />
               </Route>
               <Route path='/demand-supply'>
                 <h1>
                   DemandSupply
                 </h1>
-                <DemandSupply/>
+                <DemandSupply />
               </Route>
               <Router path='/phone-component'>
-                  <InputPhone/>
+                <InputPhone />
+              </Router>
+              <Router path='/todo-component'>
+                <TodoComponent />
               </Router>
               <Route path='*'>
                 <h1>
@@ -83,7 +86,6 @@ function App() {
         </Router>
       </div>
     </Provider>
-      
   );
 }
 
