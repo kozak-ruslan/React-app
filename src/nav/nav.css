@@ -1,0 +1,13 @@
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+ul a{
+    padding: 0 10px;
+    text-decoration: none;
+    
+}
+ul a.selected{
+    box-shadow: 0px 2px 0px 0px #f9b2b2;
+}

@@ -1,0 +1,23 @@
+.page-demand-supply{
+    max-width: 1024px;
+    width: 100%;
+}
+.cell-input input{
+    border: none;
+    text-align: center;
+}
+.cell-input input:focus{
+    outline: none;
+    border: 1px solid red;
+}
+.MuiMenu-list{
+    display: flex;
+    flex-direction: column;
+}
+.MuiFormControl-root{
+    max-width: 320px;
+    width: 100%;
+}
+.MuiFormControl-root{
+    float: left;
+}
