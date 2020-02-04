@@ -27,7 +27,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import find from "lodash/find";
 import { connect } from "react-redux";
-import actions from "../actions";
+// import actions from "../../actions/actions";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -461,5 +461,5 @@ function mapStateToProps(state) {
   // };
 }
 
-export default connect(mapStateToProps, actions)(DemandSupply);
+export default DemandSupply;
 

@@ -21,7 +21,7 @@ export const TodoForm: React.FC<TodoFormProps> = (props) => {
 		}
 	}
 	const handleClick = () => {
-		if(ref.current!.value != ''){
+		if (ref.current!.value != '') {
 			console.log('handleClick', ref.current!.value);
 			props.onAdd(ref.current!.value);
 			ref.current!.value = ''
@@ -34,7 +34,7 @@ export const TodoForm: React.FC<TodoFormProps> = (props) => {
 				id="standard-basic"
 				label="Введіть назв"
 				inputRef={ref}
-				onKeyPress={keyPresetHandle}/>
+				onKeyPress={keyPresetHandle} />
 			<Button
 				variant="contained"
 				color="primary"

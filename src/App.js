@@ -4,30 +4,25 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import thunk from 'redux-thunk';
 
 import logo from './logo.svg';
 
 import './App.css';
 
-import Games from './games/Games';
-import UsersListHooks from './component-hooks/UsersListHook';
-import UsersList from './component-class/UsersList';
-import DemandSupply from './demand-supply/demand-supply';
-import Nav from './nav/nav';
-import reducer from "./reducer";
-import { createStore } from 'redux'
+import Games from './components/games/Games';
+import UsersListHooks from './components/component-hooks/UsersListHook';
+import UsersList from './components/component-class/UsersList';
+import DemandSupply from './components/demand-supply/demand-supply';
+import Nav from './components/nav/nav';
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from "react-redux";
-import InputPhone from "./phone-component/phones-list"
-import { TodoComponent } from './todo-list/todi-component';
+import InputPhone from "./components/phone-component/phones-list";
+import TodoComponent from "./components/todo-list/todi-component";
+import rootReducer from './reducers'
 
-var store = createStore(reducer);
+var store = createStore(rootReducer, applyMiddleware(thunk));
 
-store.dispatch({
-  type: "SET_STATE",
-  state: {
-    phones: ["iPhone 7 Plus", "Samsung Galaxy A5"]
-  }
-});
 
 function App() {
   return (
