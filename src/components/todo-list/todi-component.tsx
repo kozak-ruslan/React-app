@@ -10,18 +10,21 @@ interface State {
 	todos: Array<ITodo>;
 }
 
-const TodoComponent: React.FunctionComponent<any> = ({todos, remove, toggle, addTodo }) => {
+const TodoComponent: React.FunctionComponent<any> = ({todos, removeTodo, toggleTodo, addTodo }) => {
 	//const [todos, setTodos] = useState<Array<ITodo>>([]);
 	console.log('testStore', todos);
 	const handleRemove = (id: number) => {
-		console.log(id);
-		//dispatch.
-		remove(id);
+		removeTodo(id);
+
+		//  useState
 		// setTodos(prev => prev.filter(todo => todo.id !== id))
 	}
 	const handleToggle = (id: number) => {
 		console.log(id)
-		toggle(id)
+		toggleTodo(id)
+
+
+		//  useState
 		// setTodos(prev => prev.map((todo:ITodo) => {
 		// 	if(todo.id === id){
 		// 		todo.completed = !todo.completed;

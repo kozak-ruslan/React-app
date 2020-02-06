@@ -15,10 +15,12 @@ export const deletePhone = function(phone: any) {
   };
 };
 
-export const toggleTodo = (id: number) => ({
-  type: Todo.toggleTodo,
-  id
-});
+export const toggleTodo = (id: number) => (dispatch: any) => (
+  dispatch({
+    type: Todo.toggleTodo,
+    id
+  })
+);
 
 export const removeTodo = (id: number) => ({
   type: Todo.removeTodo,
