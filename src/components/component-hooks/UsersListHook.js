@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+// @ts-check
 export default function UsersListHooks(props = {}) {
     const defUsers = [
         {name: 'Vasya', age: 50},
@@ -15,7 +15,6 @@ export default function UsersListHooks(props = {}) {
         newUsers[i].age = +value;
         setUsers(newUsers);
     };
-
     const renderInner = ({ name, age, i}) => {
         console.log(name, age, i);
         return(

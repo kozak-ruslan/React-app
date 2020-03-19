@@ -6,20 +6,22 @@ import {
 } from 'react-router-dom';
 import thunk from 'redux-thunk';
 
-import logo from './logo.svg';
-
 import './App.css';
 
 import Games from './components/games/Games';
 import UsersListHooks from './components/component-hooks/UsersListHook';
 import UsersList from './components/component-class/UsersList';
 import DemandSupply from './components/demand-supply/demand-supply';
+import TodoPromise from "./components/page-promise/promise-test";
 import Nav from './components/nav/nav';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from "react-redux";
 import InputPhone from "./components/phone-component/phones-list";
 import TodoComponent from "./components/todo-list/todi-component";
-import rootReducer from './reducers'
+import rootReducer from './reducers';
+import CreateProgrammer from './components/composition-extends/composition/create-prog';
+import Header from './components/header/header';
+
 
 var store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -28,10 +30,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="app-logo" alt="logo" />
-          <div id='root-home'></div>
-        </header>
+        <Header />
         <Router>
           <Nav />
           <main>
@@ -71,6 +70,12 @@ function App() {
               <Router path='/todo-component'>
                 <TodoComponent />
               </Router>
+              <Router path='/promise'>
+                <TodoPromise />
+              </Router>
+              <Route path="/composition-extends">
+                <CreateProgrammer/>
+              </Route>
               <Route path='*'>
                 <h1>
                   404

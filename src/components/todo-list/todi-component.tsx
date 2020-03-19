@@ -10,9 +10,10 @@ interface State {
 	todos: Array<ITodo>;
 }
 
-const TodoComponent: React.FunctionComponent<any> = ({todos, removeTodo, toggleTodo, addTodo }) => {
+const TodoComponent: React.FunctionComponent<any> = ({ todos, removeTodo, toggleTodo, addTodo }) => {
 	//const [todos, setTodos] = useState<Array<ITodo>>([]);
 	console.log('testStore', todos);
+
 	const handleRemove = (id: number) => {
 		removeTodo(id);
 
@@ -81,11 +82,11 @@ const TodoComponent: React.FunctionComponent<any> = ({todos, removeTodo, toggleT
 }
 
 export default connect(
-(state: State) => {
-	return {
-		todos: state.todos
-	}
-}, {
+	(state: State) => {
+		return {
+			todos: state.todos
+		}
+	}, {
 	removeTodo,
 	addTodo,
 	toggleTodo

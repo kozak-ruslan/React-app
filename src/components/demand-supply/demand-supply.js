@@ -26,7 +26,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import find from "lodash/find";
-import { connect } from "react-redux";
+import { Demand } from "./demand"
 // import actions from "../../actions/actions";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -109,29 +109,9 @@ class DemandSupply extends Component {
     const demandQualityIndex = e.target.getAttribute(
       "data-demand-quality-index"
     );
-    demand[demandIndex].demandQuality[demandQualityIndex].demandCustom = +e
-      .target.value;
+    demand[demandIndex].demandQuality[demandQualityIndex].demandCustom = +e.target.value;
     const recalculateTotalDS = recalculateTotal(this.state);
     this.setState({ demand, totalQualityDemandSupply: recalculateTotalDS });
-  };
-
-  renderDemandTableCell(props) {
-    return (
-      <TableCell
-        className="cell-input"
-        key={props.qualityId}
-        component="th"
-        scope="row"
-        align="center"
-      >
-        <input
-          value={props.demandCustom}
-          data-demand-index={props.demandIndex}
-          data-demand-quality-index={props.demandQualityIndex}
-          onChange={this.handleDemandChange}
-        />
-      </TableCell>
-    );
   };
 
   handleSupplyChange(e, supplyIndex, supplyQualityIndex) {
@@ -371,38 +351,13 @@ class DemandSupply extends Component {
                 Button Primary
               </Button>
             )}
-            <Table aria-label="simple table" size="small">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Предприятия</TableCell>
-                  {qualityViewModel.map((row, i) => (
-                    <TableCell key={i} align="center">
-                      {row.qualityId}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {selectedDemand.map(
-                  ({ receiverCompanyName, demandQuality }, demandIndex) => (
-                    <TableRow key={demandIndex}>
-                      <TableCell component="th" scope="row">
-                        {receiverCompanyName}
-                      </TableCell>
-                      {demandQuality.map(
-                        ({ demandCustom, qualityId }, demandQualityIndex) =>
-                          this.renderDemandTableCell({
-                            qualityId,
-                            demandCustom,
-                            demandIndex,
-                            demandQualityIndex
-                          })
-                      )}
-                    </TableRow>
-                  )
-                )}
-              </TableBody>
-            </Table>
+
+            <Demand
+              demand= {demand}
+              qualityViewModel= {qualityViewModel}
+              selectedDemand= {selectedDemand}
+              onHandleChange={this.handleDemandChange}>
+            </Demand>
 
             <h3>Supply</h3>
             <Table
