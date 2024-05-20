@@ -19,7 +19,6 @@ import CreateProgrammer from "./components/composition-extends/composition/creat
 import Header from "./components/header/header";
 
 var store = createStore(rootReducer, applyMiddleware(thunk));
-
 const App = () => (
   <Provider store={store}>
     <div className="App">

@@ -40,7 +40,6 @@ export class Board extends React.Component {
   }
 
   handleClick(i) {
-    // const squares = this.state.squares.slice();
     const { squares, xIsNext, squ } = this.state;
     console.log(xIsNext);
     console.log(squ);
