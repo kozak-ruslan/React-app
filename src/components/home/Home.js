@@ -104,9 +104,9 @@ export class Board extends React.Component {
     const title = "base class Board";
     let status;
     if (winner) {
-      status = "Победитель: " + winner;
+      status = "Winner: " + winner;
     } else {
-      status = "Следующий игрок: " + (this.state.xIsNext ? "X" : "O");
+      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
 
     return (
